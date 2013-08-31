@@ -1,0 +1,257 @@
+@import url("../webfonts/basictitlefont/stylesheet.css");
+@import url("../webfonts/pathway/stylesheet.css");
+
+body {
+   font-size: 15px;
+   font-family: Calibri;
+   margin: 0px;
+   padding: 0px;
+   background-image: url(../images/pw_pattern.png);
+   background-repeat: repeat;
+   color: #4a3200;
+  }
+
+  header {
+    display: block;
+    width: 650px;
+    margin: auto;
+    padding: 0px;
+    height: 300px;
+  }
+
+  header img {
+    margin: auto;
+    float: right;
+    padding: 0px;
+    height: 100%;
+  }
+
+  header h1 {
+    font-family: pathwaygothicone;
+    position: relative;
+    float: right;
+    top: 20%;
+    border-right: 1px solid;
+    padding: 30px 15px 0px 0px;
+    margin: 0px 15px 0px 0px;
+    text-align: right;
+    font-size: 60px;
+    font-weight: normal;
+  }
+
+  .hiddenAtFirst {
+    font-family: pathwaygothicone;
+    font-size: 65px;
+    padding: 10px;
+    text-align: center;
+    display: none;
+  }
+
+  .horizontalrule {
+    width: 100%;
+    height: 5px;
+    background-color: #E74C3C;
+  }
+
+  h2 {
+    background-image: url(../images/tape.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 20px;
+    font-family: basictitlefont;
+    color: #df3737;
+    font-size: 25px;
+    text-align: center;
+    margin: 10px;
+  }
+
+  #main {
+   margin: 0px;
+   padding: 0px;
+   display: -webkit-flex;
+   display: flex;
+   -webkit-flex-flow: row;
+           flex-flow: row;
+   }
+
+  #main > nav {
+   background-image: url(../images/purty_wood.png);
+   background-repeat: repeat;
+   margin: 0px 4px 4px 4px;
+   padding: 10px;
+   border-radius: 5px;
+   text-align: justify;
+   -webkit-flex: 1 6 28%;
+           flex: 1 6 28%;
+   -webkit-order: 1;
+           order: 1;
+   }
+ 
+  #main > article {
+   background-image: url(../images/purty_wood.png);
+   background-repeat: repeat;
+   margin: 0px 0px 4px 0px;
+   padding: 10px 2% 10px 2%;
+   border-radius: 5px;
+   -webkit-flex: 3 1 44%;
+           flex: 3 1 44%;
+   -webkit-order: 2;
+           order: 2;
+   }
+
+  article img {
+    border: 3px solid;
+    border-color: #fff;
+    height: 150px;
+    max-width: 250px;
+    display: block;
+    margin: 0 auto;
+    border-radius: 0px 25px 0px 25px;
+   }
+
+  a {
+    text-decoration: none;
+    color: #4a3200;
+  }
+
+  article h3 {
+    display: block;
+    font-family: pathwaygothicone;
+    color: #000;
+    font-weight: normal;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 30px;
+  }
+
+  article h3:hover {
+    color: #df3737;
+  }
+
+  article p{
+    text-align: justify;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #df3737;
+
+  }
+  
+  #main > aside {
+   background-image: url(../images/purty_wood.png);
+   background-repeat: repeat;
+   margin: 0px 4px 4px 4px;
+   padding: 10px;
+   border-radius: 5px;
+   -webkit-flex: 1 6 28%;
+           flex: 1 6 28%;
+   -webkit-order: 3;
+           order: 3;
+   }
+
+  nav ol{
+    padding-left: 15px;
+  }
+
+  aside ol{
+    padding-left: 25px;
+  }
+
+  aside ul {
+    list-style: none;
+    padding-left: 25px;
+  }
+
+  aside ul li:hover {
+    text-decoration: underline;
+  }
+
+  ul{
+    padding-left: 55px;
+    font-size: 15px;
+    text-align: left;
+  }
+
+  li{
+    padding-bottom:5px;
+  }
+ 
+  footer {
+   font-family: pathwaygothicone;
+   font-size: 18px;
+   display: block;
+   margin: 4px;
+   padding: 15px;
+   text-align: center;
+   color: #999;
+   color: #df3737;
+   }
+
+   footer a{
+    color: #ccc;
+   }
+
+   footer a:hover{
+    text-decoration: underline;
+    color:#999;
+  }
+
+  ::-webkit-scrollbar {
+   width: 6px;
+   }
+
+  ::-webkit-scrollbar-track {
+   -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.2); 
+   -webkit-border-radius: 10px;
+   border-radius: 10px;
+   }
+   
+  ::-webkit-scrollbar-thumb {
+   -webkit-border-radius: 10px;
+   border-radius: 10px;
+   background: rgba(0,0,0,0.1); 
+   -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+  }
+
+  ::-webkit-scrollbar-thumb:window-inactive {
+   background: rgba(0,0,0,0.1); 
+  }
+
+ 
+  /* Too narrow to support three columns */
+  @media all and (max-width: 600px) {
+  
+  body {
+   font-size: 18px;
+   }
+
+   #main, #page {
+    display: block;
+    -webkit-flex-flow: column;
+            flex-flow: column;
+   }
+
+   #main > article, #main > nav, #main > aside {
+    /* Return them to document order */
+    -webkit-order: 0;
+            order: 0;
+   }
+
+   #main article {
+    margin: 0px 4px 4px 4px;
+   }
+
+   header {
+    min-height: 50px;
+    max-height: 250px;
+    width: 335px;
+   }
+
+   .hiddenAtFirst {
+    display: block;
+   }
+
+   header span {
+    display: none;
+    font-size: 30px;
+   }
+
+}
