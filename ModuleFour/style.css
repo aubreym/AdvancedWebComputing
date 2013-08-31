@@ -1,0 +1,67 @@
+@import url("../webfonts/basictitlefont/stylesheet.css");
+
+body {
+    background-image: url(images/purty_wood.png);
+    background-repeat: repeat;
+    font-family: basictitlefont;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 30px;
+    padding: 15px 10px 10px 10px;
+    color: #2c3e50;
+    font-family: Calibri;
+    background-image: url(images/tape.png);
+}
+
+.container {
+    width: 530px;
+    margin: 0 auto;
+    font-family: sans-serif;
+}
+
+.addColumn, .doneColumn {
+    width: 220px;
+    float: left;
+    color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    min-height: 120px;
+}
+
+.addColumn {
+    background-color: rgba(180, 20, 20, .7);
+    margin-right: 5px;
+}
+
+.doneColumn {
+    background-color: rgba(20, 80, 180, .7);
+}
+
+.addColumn img {
+    display: inline;
+    width: 15px;
+}
+
+#todo-list {
+    list-style: none;
+    width: 100%;
+    padding-left: 0;
+}
+.todo-item {
+    height: 30px;
+    padding: 5px;
+    margin-top: 5px;
+    border-radius: 3px;
+    background-color: rgba(0,0,0,.2);
+}
+#todo-list .complete {
+   float: right;
+}
+
+#txtbox {
+    color: #999;
+    padding: 5px;
+    border-radius: 2px;
+}
