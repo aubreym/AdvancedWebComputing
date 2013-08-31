@@ -1,0 +1,112 @@
+body {
+	font-family: century gothic;
+	background-image: url(pw_pattern.png);
+	background-repeat: repeat;
+}
+
+#container {
+	width: 960px;
+	margin: 0 auto;
+}
+
+.pics {
+	float: left;
+}
+
+.pics img {
+	width: 230px;
+	margin:10px 0 0 10px;
+	
+}
+
+.pics:hover {
+	background-color: rgba(26, 188, 156, 0.3);
+}
+
+#searchbar {
+	padding-top: 250px;
+	text-align: center;
+	position: relative;
+}
+
+#txtbox {
+	font-family: century gothic;
+	font-size: 16px;
+	border: 2px solid #27AE60;
+	border-radius: 7px;
+	width: 630px;
+	height: 20px;
+	padding: 6px;
+	outline: none;
+	color: #999;
+}
+
+#txtbox:focus {
+	border: 2px solid #3498DB;
+}
+
+#btnSearch {
+	border-radius: 7px;
+	display: inline-block;
+	padding: 7px 20px 7px 20px;
+	background: #3498DB;
+	color: white;
+	text-decoration: none;
+	transition: all 0.15s ease-in 0s;
+	-webkit-transition: all 150ms ease-in 0s;
+	-ms-transition: all 150ms ease-in 0s;
+	-o-transition: all 150ms ease-in 0s;
+}
+
+#btnSearch:hover {
+	background: #1ABC9C;
+}
+
+#queue {
+	width: 570px;
+	margin: 0 auto;
+	margin-top: 10px;
+
+}
+
+.boo {
+	display:inline;
+	padding-top:10px;
+	width: 255px;
+	float: right;
+	margin: 10px 10px 0 10px;
+	font-weight: 500;
+	text-align: left;
+	font-size: 14px;
+	color:#2c3e50;
+}
+
+.title{
+	color: #2980b9;
+	font-size: 16px;
+}
+
+p {
+	margin: 0;
+	font-size: 11px;
+}
+
+#loader {
+	display: none;
+	width: 100%;
+	text-align: center;
+}
+
+#loader img { 
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	margin-top: -40px;
+	margin-left: -40px;
+	width: 80px; 
+	height: 80px; 
+}
+
+#design {
+	margin-left: 300px;
+}
