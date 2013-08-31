@@ -1,0 +1,164 @@
+<html>
+<head>
+    <title>My to do list</title>
+    <link rel=stylesheet href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div id="header">
+            <h1>Google Keep</h1>
+            <p>(<span id="doneCount">0</span>/<span id="totalCount">0</span>)</p>
+        </div>
+        <div id='buttons'>
+            <input type='button' onclick="transpose()" value="toggle"/>
+            <input type='button' onclick="removeAllDone()" value='remove all done'/>
+        </div>
+        <div class='addColumn'>
+            <h2>To do:</h2>
+            <input id='txtbox' type='text' onfocus="this.value=''" value='Add something' onkeydown="onEnter()"/>
+            <a href="#" id='btn-add' onclick="onClickShow()"><img src="images/add.png"></a>
+            <ul id='todo-list'>
+            </ul>
+        </div>
+        <div class='doneColumn'>
+            <h2>Done:</h2>
+            <ul id='done-list'>
+            </ul>
+        </div>
+    </div>
+    <div id="result"></div>
+    <script>
+
+        var txtBoxEl = document.getElementById('txtbox');
+        var todoListEl = document.getElementById('todo-list');
+        var doneListEl = document.getElementById('done-list');
+
+        var doneCount = 0;
+        var totalCount = 0;
+        var displayDone = document.getElementById('doneCount');
+        var displayTotal = document.getElementById('totalCount');
+        displayDone.innerHTML = doneCount;
+        displayTotal.innerHTML = totalCount;
+
+        var task = [];
+        var sameTask = "true";
+
+        function clearTxtbox() {
+            txtBoxEl.value="";  
+        }
+
+        function onEnter() {
+            if(event.keyCode == 13){
+                document.getElementById('btn-add').click();
+            }
+        }
+
+        function onClickShow() {
+            if(txtBoxEl.value!="") {
+                for(var i=0; i<task.length; i++) {
+                    if(txtBoxEl.value == task[i]) {
+                        sameTask = "true";
+                        alert("Task name already included!");
+                        break;
+                    }
+                    else {
+                        sameTask = "false";
+                    }
+                }
+            }
+            else { 
+                alert("Task name cannot be empty.");
+                sameTask = "true";
+            }
+
+            if(task.length==0){
+                sameTask = "false";
+            }
+
+
+            if(sameTask == "false"){
+                var itemEl = document.createElement('li');
+                var listMarkup = '<div class="todo-item">' + '<span class="name">' + txtBoxEl.value + '</span>'
+                                + '<input type="checkbox" class="complete">' + '</div>';
+                itemEl.innerHTML = listMarkup;
+                var comBtnEl = itemEl.getElementsByClassName('complete')[0];
+                comBtnEl.onclick = onClickComplete;
+                todoListEl.insertBefore(itemEl, todoListEl.firstChild);
+                task.push(txtBoxEl.value);
+                clearTxtbox();
+                totalCount++;
+                displayTotal.innerHTML = totalCount;
+                updateLocalStorage();
+            }
+        }
+
+        function onClickComplete() {
+            var comBtnEl = event.target;
+            var preliItem = comBtnEl.parentNode; 
+            var liItem = preliItem.parentNode;
+            liItem.remove();
+
+            if(comBtnEl.checked==true){
+                preliItem.className='done'
+                doneListEl.appendChild(liItem);
+                doneCount++;
+                displayDone.innerHTML = doneCount;
+                var spl = preliItem.innerHTML;
+                task.splice(task.indexOf(spl), 1);
+                updateLocalStorage();
+            } else {
+                preliItem.className='todo-item';
+                todoListEl.appendChild(liItem);
+                doneCount--;
+                displayDone.innerHTML = doneCount;
+            }
+        }
+
+        function transpose() {
+            var foo = document.getElementsByClassName('complete');        
+            for(var h=foo.length-1; h>=0; --h) { 
+                var bar = foo[h].parentNode;
+                foo[h].checked=true;
+                bar.className='done';
+                bar.remove();
+                doneListEl.appendChild(bar);
+                doneCount++;
+                displayDone.innerHTML = doneCount;
+            }
+        }
+
+        function removeAllDone() {
+            var rmv = document.getElementsByClassName('done');
+            for(var g=rmv.length-1; g>=0; --g) {
+                rmv[g].remove();
+                doneCount--;
+                totalCount--;
+                displayDone.innerHTML = doneCount;
+                displayTotal.innerHTML = totalCount;
+            }
+        }
+
+        function updateLocalStorage() {
+                localStorage["task"] = JSON.stringify(task);
+        }
+
+        var storedNames = JSON.parse(localStorage["task"]);
+            for(p=0; p<storedNames.length; p++){
+                var itemEl = document.createElement('li');
+                var listMarkup = '<div class="todo-item">' + '<span class="name">' + storedNames[p] + '</span>'
+                                + '<input type="checkbox" class="complete">' + '</div>';
+                itemEl.innerHTML = listMarkup;
+                var comBtnEl = itemEl.getElementsByClassName('complete')[0];
+                comBtnEl.onclick = onClickComplete;
+                todoListEl.insertBefore(itemEl, todoListEl.firstChild);
+                totalCount++;
+                displayTotal.innerHTML = totalCount;
+                task.push(storedNames[p]);
+                updateLocalStorage();
+        }
+        
+
+    </script>
+</body>
+
+</html>
