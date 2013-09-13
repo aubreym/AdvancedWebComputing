@@ -1,0 +1,51 @@
+body {
+    padding-top: 80px;
+}
+
+.jumbotron {
+	margin-top: -30px;
+	padding-bottom: 0px;
+	margin-bottom: 0px;
+}
+
+.imgs {
+	margin-bottom: 15px;
+	border-radius: 5px;
+	border: 2px inset;
+}
+
+.img-thumbnail {
+	height: 300px;
+}
+
+.mov {
+	height: 350px;
+}
+
+#loader {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	margin-top: -200px;
+	margin-left: -350px;
+	width: 700px; 
+	height: 400px;
+	display: none;
+}
+
+#clippis {
+	display: inline-block;
+	width: 130px;
+	padding: 4px;
+	line-height: 1.428571429;
+	background-color: #ffffff;
+	border: 1px solid #dddddd;
+	border-radius: 4px;
+	-webkit-transition: all 0.2s ease-in-out;
+	      transition: all 0.2s ease-in-out;
+}
+
+.full-movie-item {
+	float:right;
+	margin-right: 60px;
+}
