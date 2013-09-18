@@ -1,0 +1,22 @@
+application: guestbook
+version: 1
+runtime: python27
+api_version: 1
+threadsafe: true
+
+handlers:
+- url: /stylesheets
+  static_dir: stylesheets
+
+- url: /purty_wood\.png
+  static_files: purty_wood.png
+  upload: purty_wood\.png
+
+- url: /.*
+  script: guestbook.application
+
+libraries:
+- name: webapp2
+  version: latest
+- name: jinja2
+  version: latest
